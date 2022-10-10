@@ -1,0 +1,232 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3966400037936809 0.06629965752585593 0.9155769016322456 2.837873148409236
+  position 2.30378996168574 -2.052092954190706 2.7054088846986177
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+}
+Robot {
+  translation 0.0004570233705632037 0.0003362334059748733 -0.0034227889276176177
+  rotation 0.1805841343661671 -0.13491344245458783 0.9742626614318516 0.00012010899218296403
+  children [
+    DistanceSensor {
+      translation -0.05 -0.25 0.1
+      rotation 0 0 -1 1.79
+      children [
+        DEF SENSOR_LEFT Shape {
+          appearance PBRAppearance {
+            baseColor 0.752941 0.109804 0.156863
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject Shape {
+        appearance PBRAppearance {
+          baseColor 0.752941 0.109804 0.156863
+          metalness 0
+        }
+        geometry Box {
+          size 0.01 0.01 0.01
+        }
+      }
+      physics Physics {
+      }
+      lookupTable [
+        0 0 0
+        0.3 1000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0.05 -0.25 0.1
+      rotation 0 0 -1 1.35
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.752941 0.109804 0.156863
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject Shape {
+        appearance PBRAppearance {
+          baseColor 0.647059 0.113725 0.176471
+          metalness 0
+        }
+        geometry Box {
+          size 0.01 0.01 0.01
+        }
+      }
+      physics Physics {
+      }
+      lookupTable [
+        0 0 0
+        0.3 1000 0
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.4515823161720496e-08
+        anchor -0.125 -0.15 0.1
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.125 -0.15 0.1
+        rotation 7.847919594391038e-09 0.9999999999999999 7.841672454317635e-09 1.5699999999999994
+        children [
+          DEF WHEEL_4 Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        name "wheel4_end"
+        boundingObject USE WHEEL_4
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.7773933402475007e-08
+        anchor 0.125 -0.15 0.1
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.12500007947835795 -0.1499999850365522 0.09998431111787602
+        rotation 1.1826317847233816e-08 0.9999999999999998 1.1848294695900591e-08 1.570000005699791
+        children [
+          DEF WHEEL_3 Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        name "wheel3_end"
+        boundingObject USE WHEEL_3
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.4413016576641839e-08
+        anchor -0.125 0.15 0.1
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.12499992098974712 0.15000001497302246 0.09998431000119776
+        rotation 5.65092967896524e-09 1 5.6778213852819065e-09 1.5700000056997916
+        children [
+          DEF WHEEL_2 Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        name "wheel2_end"
+        boundingObject USE WHEEL_2
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.0148047652186475e-08
+        anchor 0.125 0.15 0.1
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.12500007950303915 0.15000001498437343 0.09998430857843932
+        rotation 3.006354410908979e-09 1 3.0353516735015143e-09 1.5700000056997894
+        children [
+          DEF WHEEL_1 Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        name "wheel1_end"
+        boundingObject USE WHEEL_1
+        physics Physics {
+        }
+      }
+    }
+    Solid {
+      translation 0 0 0.1
+      children [
+        DEF BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.2 0.5 0.1
+          }
+        }
+      ]
+      name "body"
+      boundingObject USE BODY
+      physics Physics {
+      }
+    }
+  ]
+  physics Physics {
+  }
+  controller "robot_controller"
+}
