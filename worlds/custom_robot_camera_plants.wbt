@@ -4,14 +4,14 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/trees/protos/Tree.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/plants/protos/PottedTree.proto"
+EXTERNPROTO "../protos/PottedTree.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/drinks/protos/Can.proto"
 
 WorldInfo {
 }
 Viewpoint {
   orientation 0.41382727378349277 0.0904232654765709 -0.9058535315013547 2.750770529625888
-  position 6.7074962356159755 1.5979936705493043 5.3958620202293455
+  position 9.874305516194024 3.051343832060436 9.41909278897373
 }
 TexturedBackground {
 }
@@ -232,7 +232,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.12499909138917764 -0.15002389902795205 0.10004060726880128
-        rotation -0.3347452534620788 0.8807988075753763 -0.33487173045571317 1.6969712736789566
+        rotation -0.3347452534620788 0.8807988075753763 -0.33487173045571317 1.6969712736789562
         children [
           DEF WHEEL_4 Shape {
             appearance PBRAppearance {
@@ -249,8 +249,6 @@ Robot {
         boundingObject USE WHEEL_4
         physics Physics {
         }
-        linearVelocity -0.10464126925030785 0.0021854462867977563 0.012201950453414892
-        angularVelocity -0.022738984593021566 -1.0457018309222725 -0.02264587313947909
       }
     }
     HingeJoint {
@@ -265,7 +263,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.12500007947835795 -0.14999443476741006 0.09998533134524148
-        rotation 0.17714549507862223 0.9681368112587074 0.17700448655096784 1.602376622797037
+        rotation 0.17714549507862226 0.9681368112587074 0.17700448655096784 1.602376622797037
         children [
           DEF WHEEL_3 Shape {
             appearance PBRAppearance {
@@ -282,8 +280,6 @@ Robot {
         boundingObject USE WHEEL_3
         physics Physics {
         }
-        linearVelocity -0.10456753161275548 0.002247260729572721 0.019323140686819812
-        angularVelocity -0.022768591121415327 -1.0457049614458918 -0.0222439896630937
       }
     }
     HingeJoint {
@@ -298,7 +294,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.12499992098974712 0.14998548589274283 0.09999404038783678
-        rotation -0.48706726916881743 0.7251954768679889 -0.4866795615542537 1.8859630301307406
+        rotation -0.48706726916881743 0.725195476867989 -0.4866795615542538 1.8859630301307406
         children [
           DEF WHEEL_2 Shape {
             appearance PBRAppearance {
@@ -315,8 +311,6 @@ Robot {
         boundingObject USE WHEEL_2
         physics Physics {
         }
-        linearVelocity -0.10457332460954169 0.002244976429684081 0.02618748096910809
-        angularVelocity -0.022771826586935634 -1.0457067239745201 -0.02221386967020773
       }
     }
     HingeJoint {
@@ -330,8 +324,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.12500007950303915 0.14999404163588195 0.09998548384237606
-        rotation -0.19058317735570227 0.9630233158447429 -0.19043147231589977 1.607669303063871
+        translation 0.12500007950303915 0.14999404163588195 0.09998548384237604
+        rotation -0.19058317735570224 0.9630233158447429 -0.19043147231589974 1.607669303063871
         children [
           DEF WHEEL_1 Shape {
             appearance PBRAppearance {
@@ -348,8 +342,6 @@ Robot {
         boundingObject USE WHEEL_1
         physics Physics {
         }
-        linearVelocity -0.10459985354985898 0.0022938249800935565 0.033056191244291495
-        angularVelocity -0.022799662267057708 -1.0457202346750725 -0.02181670062946614
       }
     }
     Solid {
@@ -374,8 +366,6 @@ Robot {
   physics Physics {
   }
   controller "robot_controller"
-  linearVelocity -0.10478768207068447 0.0023382833338334054 0.02256354165778955
-  angularVelocity -0.02686718370154964 -0.04596054601363253 -0.0002272313907669488
 }
 Can {
   translation 1.23 1.76 0.060962659999999995
