@@ -34,10 +34,12 @@ os.makedirs(images_dir)
 image_number = 0
 
 cm.recognitionEnable(TIME_STEP)
+cm.enableRecognitionSegmentation()
 
 while robot.step(TIME_STEP) != -1:
     image_number += 1
     cm.saveImage(f"{os.path.join(images_dir, str(image_number))}_raw.jpg", 70)
+    cm.saveRecognitionSegmentationImage(f"{os.path.join(images_dir, str(image_number))}_rec.jpg", 70)
 
     leftSpeed = 1.0
     rightSpeed = 1.0
