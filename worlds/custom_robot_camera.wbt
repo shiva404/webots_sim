@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.3966400037936809 0.06629965752585593 0.9155769016322456 2.837873148409236
-  position 2.30378996168574 -2.052092954190706 2.7054088846986177
+  orientation 0.23667287920303273 0.6949669444275558 -0.678974884957296 0.9297920007030169
+  position -4.276412301811389 4.54663945175062 3.9257163793456624
 }
 TexturedBackground {
 }
@@ -18,9 +18,63 @@ RectangleArena {
   floorSize 5 5
 }
 Robot {
-  translation 0.0004570233705632037 0.0003362334059748733 -0.0034227889276176177
-  rotation 0.1805841343661671 -0.13491344245458783 0.9742626614318516 0.00012010899218296403
+  translation -0.8434697789367753 2.2507042263454515 -0.0036393125763253403
+  rotation 2.578431183621245e-05 -4.676956724449007e-05 -0.9999999985738884 -1.5740519136539044
   children [
+    Solid {
+      translation 0 0 0.25
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0 -0.05 0.08
+          }
+          device [
+            RotationalMotor {
+            }
+          ]
+          endPoint Solid {
+            translation 0 -0.05 0.08
+            rotation 1 0 0 1.57
+            children [
+              Camera {
+                translation 0 0 0.02
+                rotation 0.5771968951617173 0.5771968951617173 0.577656895078166 -2.093935307179586
+                name "cam"
+                width 640
+                height 640
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.388235 0.270588 0.172549
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.05
+                  radius 0.02
+                }
+              }
+            ]
+          }
+        }
+        Solid {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.505882 0.239216 0.611765
+                metalness 0
+              }
+              geometry Box {
+                size 0.05 0.05 0.2
+              }
+            }
+          ]
+          name "mount_pole"
+        }
+      ]
+      name "camera_mount"
+      physics Physics {
+      }
+    }
     DistanceSensor {
       translation -0.05 -0.25 0.1
       rotation 0 0 -1 1.79
@@ -85,7 +139,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 1.4515823161720496e-08
+        position 176.80977576946387
         anchor -0.125 -0.15 0.1
       }
       device [
@@ -95,7 +149,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.125 -0.15 0.1
-        rotation 7.847919594391038e-09 0.9999999999999999 7.841672454317635e-09 1.5699999999999994
+        rotation 0.3923436970375549 0.8320924314959809 0.39203138757248746 1.7527985487201372
         children [
           DEF WHEEL_4 Shape {
             appearance PBRAppearance {
@@ -112,11 +166,13 @@ Robot {
         boundingObject USE WHEEL_4
         physics Physics {
         }
+        linearVelocity 0.10000012610962392 0.0003277190583180656 -3.9986417830592506e-06
+        angularVelocity -0.0032509556525909186 0.9999762339199598 -4.588889794373237e-05
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 2.7773933402475007e-08
+        position 624.7321448520354
         anchor 0.125 -0.15 0.1
       }
       device [
@@ -125,8 +181,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.12500007947835795 -0.1499999850365522 0.09998431111787602
-        rotation 1.1826317847233816e-08 0.9999999999999998 1.1848294695900591e-08 1.570000005699791
+        translation 0.12500007947835795 -0.14999326303261698 0.10001416878670476
+        rotation -0.6985214006125423 -0.15783595495747035 -0.6979653746490262 3.4549270614888616
         children [
           DEF WHEEL_3 Shape {
             appearance PBRAppearance {
@@ -143,11 +199,13 @@ Robot {
         boundingObject USE WHEEL_3
         physics Physics {
         }
+        linearVelocity 0.1000007348427094 0.00032715722202850345 4.117193039657575e-06
+        angularVelocity -0.0032507678745671586 0.9999763580133327 -4.5873632692188746e-05
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 1.4413016576641839e-08
+        position 176.81040909095063
         anchor -0.125 0.15 0.1
       }
       device [
@@ -156,8 +214,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.12499992098974712 0.15000001497302246 0.09998431000119776
-        rotation 5.65092967896524e-09 1 5.6778213852819065e-09 1.5700000056997916
+        translation -0.12499992098974712 0.1500121146100363 0.0999900294177565
+        rotation 0.3925667508583403 0.831882165240501 0.3922542661021054 1.7530471021109002
         children [
           DEF WHEEL_2 Shape {
             appearance PBRAppearance {
@@ -174,11 +232,13 @@ Robot {
         boundingObject USE WHEEL_2
         physics Physics {
         }
+        linearVelocity 0.09998803822654877 0.00032296096144399057 2.1368930777166136e-06
+        angularVelocity -0.0032506205609430443 0.9999738650081118 -4.586228908104685e-05
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 1.0148047652186475e-08
+        position 624.7894297052458
         anchor 0.125 0.15 0.1
       }
       device [
@@ -187,8 +247,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.12500007950303915 0.15000001498437343 0.09998430857843932
-        rotation 3.006354410908979e-09 1 3.0353516735015143e-09 1.5700000056997894
+        translation 0.12500007950303915 0.15000591564349863 0.10001453361954657
+        rotation -0.7006815690746754 -0.13737529026894346 -0.7001238236073491 3.4148490026657456
         children [
           DEF WHEEL_1 Shape {
             appearance PBRAppearance {
@@ -205,6 +265,8 @@ Robot {
         boundingObject USE WHEEL_1
         physics Physics {
         }
+        linearVelocity 0.10000131467184224 0.00032244088713445895 -2.2622430144293962e-06
+        angularVelocity -0.003250435375179278 0.9999764697838588 -4.5841018443581484e-05
       }
     }
     Solid {
@@ -229,4 +291,6 @@ Robot {
   physics Physics {
   }
   controller "robot_controller"
+  linearVelocity 0.0999929343006722 0.00032503689765268695 -6.3719730745813734e-06
+  angularVelocity 4.4928497611009e-06 -1.8968850216805507e-05 2.7039242529086376e-05
 }

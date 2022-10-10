@@ -1,4 +1,4 @@
-from controller import Robot
+from controller import Robot, Camera
 
 TIME_STEP = 64
 robot = Robot()
@@ -9,6 +9,10 @@ for i in range(2):
     ds[i].enable(TIME_STEP)
 wheels = []
 wheelsNames = ['wheel1', 'wheel2', 'wheel3', 'wheel4']
+
+cm = robot.getDevice('cam')
+cm.enable(TIME_STEP)
+
 for i in range(4):
     print(wheelsNames[i])
     wheels.append(robot.getDevice(wheelsNames[i]))
