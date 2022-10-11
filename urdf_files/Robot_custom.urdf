@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<robot name="/home/shiv/Documents/plants_try/urdf_files/Robot_custom.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+  </link>
+  <link name="body">
+    <visual>
+      <geometry>
+        <box size="0.2 0.5 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.2 0.5 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_body_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="body"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+  <joint name="wheel1" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel1_end"/>
+    <axis xyz="0.000796 0 1"/>
+    <limit effort="10" velocity="10"/>
+    <origin xyz="0.125 0.15 0.1" rpy="1.570524 0.329258 1.569955"/>
+  </joint>
+  <link name="wheel1_end">
+    <visual>
+      <origin xyz="0.000016 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.000016 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel2" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel2_end"/>
+    <axis xyz="0.000796 0 1"/>
+    <limit effort="10" velocity="10"/>
+    <origin xyz="-0.124984 0.15 0.1" rpy="1.569147 1.120931 1.568965"/>
+  </joint>
+  <link name="wheel2_end">
+    <visual>
+      <origin xyz="0.000016 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.000016 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel3" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel3_end"/>
+    <axis xyz="0.000796 0 1"/>
+    <limit effort="10" velocity="10"/>
+    <origin xyz="0.125016 -0.15 0.1" rpy="1.571155 -0.422868 1.569923"/>
+  </joint>
+  <link name="wheel3_end">
+    <visual>
+      <origin xyz="0.000016 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.000016 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel4" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel4_end"/>
+    <axis xyz="0.000315 0.000263 1"/>
+    <limit effort="10" velocity="10"/>
+    <origin xyz="-0.124984 -0.15 0.1" rpy="1.570813 0.665148 1.570396"/>
+  </joint>
+  <link name="wheel4_end">
+    <visual>
+      <origin xyz="-0.000014 -0.000045 0.000001" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.000014 -0.000045 0.000001" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="ds_right">
+    <visual>
+      <origin xyz="-0.000014 -0.000045 0.000001" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.000014 -0.000045 0.000001" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_ds_right_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="ds_right"/>
+    <origin xyz="0.049986 -0.250045 0.100001" rpy="0 0 -1.35"/>
+  </joint>
+  <link name="ds_left">
+    <visual>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_ds_left_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="ds_left"/>
+    <origin xyz="-0.05 -0.25 0.1" rpy="0 0 -1.79"/>
+  </joint>
+  <link name="camera_mount">
+  </link>
+  <joint name="base_link_camera_mount_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_mount"/>
+    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+  </joint>
+  <link name="mount_pole">
+  </link>
+  <joint name="camera_mount_mount_pole_joint" type="fixed">
+    <parent link="camera_mount"/>
+    <child link="mount_pole"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="rotational motor" type="continuous">
+    <parent link="camera_mount"/>
+    <child link="solid"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="10"/>
+    <origin xyz="0 -0.05 0.08" rpy="1.57 0 0"/>
+  </joint>
+  <link name="solid">
+  </link>
+  <link name="cam">
+  </link>
+  <joint name="solid_cam_joint" type="fixed">
+    <parent link="solid"/>
+    <child link="cam"/>
+    <origin xyz="0 0 0.02" rpy="-1.570737 -1.57 -3.141653"/>
+  </joint>
+</robot>

@@ -1,9 +1,9 @@
-import os.path
-
-from controller import Robot, Camera
+from controller import Robot, Camera, CameraRecognitionObject
 import numpy as np
 from datetime import datetime
 import os
+from camera_object_utils import save_recognized_objects
+import cv2
 
 TIME_STEP = 64
 robot = Robot()
@@ -29,8 +29,16 @@ avoidObstacleCounter = 0
 
 BASE_DIR = '/home/shiv/Documents/plants_try/data/camera_images'
 dt_string = datetime.now().strftime("%Y%m%d_%H%M%S")
-images_dir = os.path.join(BASE_DIR, dt_string)
-os.makedirs(images_dir)
+raw_images_dir = os.path.join(BASE_DIR, dt_string, 'raw')
+cv2_images_dir = os.path.join(BASE_DIR, dt_string, 'cv2')
+seg_images_dir = os.path.join(BASE_DIR, dt_string, 'seg')
+rec_objects_dir = os.path.join(BASE_DIR, dt_string, 'rec_objects')
+
+os.makedirs(raw_images_dir)
+os.makedirs(cv2_images_dir)
+os.makedirs(seg_images_dir)
+os.makedirs(rec_objects_dir)
+
 image_number = 0
 
 cm.recognitionEnable(TIME_STEP)
@@ -38,8 +46,13 @@ cm.enableRecognitionSegmentation()
 
 while robot.step(TIME_STEP) != -1:
     image_number += 1
-    cm.saveImage(f"{os.path.join(images_dir, str(image_number))}_raw.jpg", 70)
-    cm.saveRecognitionSegmentationImage(f"{os.path.join(images_dir, str(image_number))}_rec.jpg", 70)
+    cm.saveImage(f"{os.path.join(raw_images_dir, str(image_number))}.jpg", 70)
+    cm.saveRecognitionSegmentationImage(f"{os.path.join(seg_images_dir, str(image_number))}.jpg", 70)
+    recognized_objects = cm.getRecognitionObjects()
+    save_recognized_objects(recognized_objects, file_path=f"{os.path.join(rec_objects_dir, str(image_number))}.json")
+    image_array = np.asarray(cm.getImageArray())
+    print(image_array)
+    cv2.imwrite(f"{os.path.join(cv2_images_dir, str(image_number))}.png", image_array)
 
     leftSpeed = 1.0
     rightSpeed = 1.0
