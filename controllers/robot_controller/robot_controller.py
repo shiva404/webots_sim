@@ -50,9 +50,9 @@ while robot.step(TIME_STEP) != -1:
     cm.saveRecognitionSegmentationImage(f"{os.path.join(seg_images_dir, str(image_number))}.jpg", 70)
     recognized_objects = cm.getRecognitionObjects()
     save_recognized_objects(recognized_objects, file_path=f"{os.path.join(rec_objects_dir, str(image_number))}.json")
-    image_array = np.asarray(cm.getImageArray())
-    print(image_array)
-    cv2.imwrite(f"{os.path.join(cv2_images_dir, str(image_number))}.png", image_array)
+    # image_array = np.asarray(cm.getImageArray())
+    # print(image_array)
+    # # cv2.imwrite(f"{os.path.join(cv2_images_dir, str(image_number))}.png", image_array)
 
     leftSpeed = 1.0
     rightSpeed = 1.0

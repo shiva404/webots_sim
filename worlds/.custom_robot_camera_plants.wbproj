@@ -6,8 +6,9 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 projectionMode: PERSPECTIVE
 renderingMode: PLAIN
-orthographicViewHeight: 7.93697
+orthographicViewHeight: 3.79623
 textFiles: -1
 globalOptionalRendering: CameraFrustums::DistanceSensorRays::LightPositions
 consoles: Console:All:All
-renderingDevicePerspectives: robot:cam;1;0.775;0.0633166;0.322066
+renderingDevicePerspectives: robot:cam;1;0.269835;0.489446;0.545645
+renderingDevicePerspectives: robot:cam_m;1;0.145176;0.2;0.753411
